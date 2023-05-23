@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza. - №1 in New York</title>
+
+    <!-- ======== Bootstrap CDN Link ======== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <!-- ======== Fontawesome CDN Link ======== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+
+    <!-- ======== Normalize CSS Link ======== -->
+    <link rel="stylesheet" href="./src/css/normalize.css" />
+
+    <!-- ======== Custom CSS Link ======== -->
+    <link rel="stylesheet" href="./src/css/complete-order.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <dix class="header__nav">
+        <div class="header-left-row">
+          <button class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+          </button>
+        </div>
+        <div class="header-center-row">
+          <a href="/index.html" class="header__logo">naPizza.</a>
+        </div>
+        <div class="header__nav-container mobile-nav">
+          <nav class="header__nav-link">
+            <a class="header__nav-item" id="home">home</a>
+            <a class="header__nav-item" id="about-btn">about</a>
+            <a class="header__nav-item" id="menu-btn">menu</a>
+            <a class="header__nav-item" id="order-btn">design pizza</a>
+            <a class="header__nav-item" id="faq-btn">faq</a>
+          </nav>
+        </div>
+        <div class="header-right-row header__icons">
+          <div id="user-btn"><i class="fa-solid fa-user"></i></div>
+          <div id="order-btn"><i class="fa-solid fa-box"></i></div>
+          <div id="open-cart-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="quantity"></span>
+          </div>
+        </div>
+      </dix>
+      <div class="cart" id="cart">
+        <div class="close-cart">
+          <button id="close-cart-btn">close</button>
+        </div>
+        <div class="cart-is-empty"></div>
+        <div class="cart-list">
+          <!-- dynamic data here -->
+        </div>
+        <div class="subtotal">Total: <span class="show-subtotal"></span></div>
+        <a href="./complete-order.html"
+          ><button type="submit" id="order-now-btn">Order Now</button></a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="heading">
+        <h1>Basket</h1>
+        <fieldset>
+          <label for="deliveryOption">
+            <input
+              type="radio"
+              name="delivery-type"
+              id="deliveryOption"
+              value="delivery"
+              checked
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 463 463"
+              width="20"
+              height="20"
+              class="DeliveryTypeChooser__DeliveryIconContainer-sc-148othk-2 bZXZtg"
+            >
+              <path
+                d="M407.5 280a55.219 55.219 0 00-17.879 2.972l-7.645-15.291A72.047 72.047 0 01407.5 263c10.076 0 19.826 2.025 28.978 6.021a7.5 7.5 0 006.001-13.748C431.422 250.447 419.654 248 407.5 248a86.924 86.924 0 00-32.257 6.215l-27.785-55.57c1.314.229 2.663.355 4.042.355h16a7.5 7.5 0 007.5-7.5v-32a7.5 7.5 0 00-7.5-7.5h-16c-9.126 0-17.048 5.232-20.939 12.852l-7.931-15.862c-4.006-8.013-12.061-12.99-21.019-12.99H287.5c-4.142 0-7.5 3.357-7.5 7.5s3.358 7.5 7.5 7.5h14.111a8.455 8.455 0 017.603 4.699l19.424 38.847-3.647 1.824C316.978 200.376 312 208.43 312 217.389V296h-64.5c-13.509 0-24.5-10.99-24.5-24.5V239h.5c12.958 0 23.5-10.542 23.5-23.5S236.458 192 223.5 192h-64c-6.425 0-12.253 2.594-16.5 6.787V87.5c0-8.547-6.953-15.5-15.5-15.5h-112C6.953 72 0 78.953 0 87.5v112c0 8.547 6.953 15.5 15.5 15.5h16.834a19.673 19.673 0 00-.521 4.74c.168 10.62 8.945 19.26 19.566 19.26h40.322a100.245 100.245 0 00-13.03 9.914c-16.617 14.933-25.497 32.727-28.266 44.4-1.493 6.295-.06 12.795 3.933 17.836 3.938 4.973 9.837 7.821 16.189 7.821h.041l3.952-.007A55.632 55.632 0 0072 335.5c0 30.603 24.897 55.5 55.5 55.5 28.058 0 51.305-20.934 54.979-48H327.5a7.5 7.5 0 007.5-7.5c0-4.887.488-9.769 1.451-14.509 4.006-19.734 15.971-36.281 32.117-46.586l7.643 15.286C361.605 299.699 352 316.497 352 335.5c0 30.603 24.897 55.5 55.5 55.5s55.5-24.897 55.5-55.5-24.897-55.5-55.5-55.5zm-248-73h64c4.687 0 8.5 3.813 8.5 8.5s-3.813 8.5-8.5 8.5h-64c-4.687 0-8.5-3.813-8.5-8.5s3.813-8.5 8.5-8.5zM15 87.5a.5.5 0 01.5-.5h112a.5.5 0 01.5.5V104H15V87.5zm.5 112.5a.5.5 0 01-.5-.5V119h113v80.5a.5.5 0 01-.5.5h-112zm35.879 24c-2.479 0-4.528-2.017-4.567-4.496A4.536 4.536 0 0150.318 215l85.695.024c-.003.159-.012.316-.012.476 0 2.997.57 5.862 1.597 8.5H51.379zm19.161 79.972h-.012c-2.383 0-3.799-1.337-4.431-2.135-1.123-1.418-1.522-3.262-1.096-5.06C70.528 273.477 99.299 239 143.5 239c34.313 0 47.1 32.793 47.1 53.464 0 5.606-3.095 11.288-9.011 11.299l-111.049.209zM136 335.5c0 4.687-3.813 8.5-8.5 8.5s-8.5-3.813-8.5-8.5 3.813-8.5 8.5-8.5 8.5 3.813 8.5 8.5zm-8.5 40.5c-22.332 0-40.5-18.168-40.5-40.5a40.55 40.55 0 013.556-16.566l20.33-.038C106.634 323.151 104 329.023 104 335.5c0 12.958 10.542 23.5 23.5 23.5s23.5-10.542 23.5-23.5c0-6.509-2.661-12.407-6.951-16.667l20.332-.039A40.54 40.54 0 01168 335.499C168 357.832 149.832 376 127.5 376zm194.251-57.993a87.579 87.579 0 00-1.433 9.993h-137.83a55.592 55.592 0 00-2.073-9.235l1.2-.002c13.673-.025 23.984-11.331 23.984-26.299 0-16.229-5.401-32.675-14.819-45.119a62.683 62.683 0 00-7.572-8.345H208v32.5c0 21.78 17.72 39.5 39.5 39.5h72a7.456 7.456 0 004.436-1.462 86.48 86.48 0 00-2.185 8.469zM351.5 167h8.5v17h-8.5c-4.687 0-8.5-3.813-8.5-8.5s3.813-8.5 8.5-8.5zM327 301.213v-83.825c0-3.24 1.8-6.153 4.699-7.603l3.647-1.824 26.49 52.979c-15.314 9.401-27.63 23.404-34.836 40.273zM407.5 376c-22.332 0-40.5-18.168-40.5-40.5s18.168-40.5 40.5-40.5 40.5 18.168 40.5 40.5-18.168 40.5-40.5 40.5z"
+              ></path>
+              <path
+                d="M407.5 312c-12.958 0-23.5 10.542-23.5 23.5s10.542 23.5 23.5 23.5 23.5-10.542 23.5-23.5-10.542-23.5-23.5-23.5zm0 32c-4.687 0-8.5-3.813-8.5-8.5s3.813-8.5 8.5-8.5 8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"
+              ></path>
+            </svg>
+            <p>Delivery</p>
+          </label>
+          <label for="carryoutOption">
+            <input
+              type="radio"
+              name="delivery-type"
+              id="carryoutOption"
+              value="carryout"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 489.4 489.4"
+              width="20"
+              height="20"
+              class="DeliveryTypeChooser__DeliveryIconContainer-sc-148othk-2 bZXZtg"
+            >
+              <path
+                d="M347.7 263.75h-66.5c-18.2 0-33 14.8-33 33v51c0 18.2 14.8 33 33 33h66.5c18.2 0 33-14.8 33-33v-51c0-18.2-14.8-33-33-33zm9 84c0 5-4.1 9-9 9h-66.5c-5 0-9-4.1-9-9v-51c0-5 4.1-9 9-9h66.5c5 0 9 4.1 9 9v51z"
+              ></path>
+              <path
+                d="M489.4 171.05c0-2.1-.5-4.1-1.6-5.9l-72.8-128c-2.1-3.7-6.1-6.1-10.4-6.1H84.7c-4.3 0-8.3 2.3-10.4 6.1l-72.7 128c-1 1.8-1.6 3.8-1.6 5.9 0 28.7 17.3 53.3 42 64.2v211.1c0 6.6 5.4 12 12 12h381.3c6.6 0 12-5.4 12-12v-209.6c0-.5 0-.9-.1-1.3 24.8-10.9 42.2-35.6 42.2-64.4zM91.7 55.15h305.9l56.9 100.1H34.9l56.8-100.1zm256.6 124c-3.8 21.6-22.7 38-45.4 38s-41.6-16.4-45.4-38h90.8zm-116.3 0c-3.8 21.6-22.7 38-45.4 38s-41.6-16.4-45.5-38H232zm-207.2 0h90.9c-3.8 21.6-22.8 38-45.5 38-22.7.1-41.6-16.4-45.4-38zm176.8 255.2h-69v-129.5c0-9.4 7.6-17.1 17.1-17.1h34.9c9.4 0 17.1 7.6 17.1 17.1v129.5h-.1zm221.7 0H225.6v-129.5c0-22.6-18.4-41.1-41.1-41.1h-34.9c-22.6 0-41.1 18.4-41.1 41.1v129.6H66v-193.3c1.4.1 2.8.1 4.2.1 24.2 0 45.6-12.3 58.2-31 12.6 18.7 34 31 58.2 31s45.5-12.3 58.2-31c12.6 18.7 34 31 58.1 31 24.2 0 45.5-12.3 58.1-31 12.6 18.7 34 31 58.2 31 1.4 0 2.7-.1 4.1-.1v193.2zm-4.1-217.1c-22.7 0-41.6-16.4-45.4-38h90.9c-3.9 21.5-22.8 38-45.5 38z"
+              ></path>
+            </svg>
+            <p>Carry out</p>
+          </label>
+        </fieldset>
+      </section>
+      <section class="basket">
+        <div class="container">
+          <div class="row">
+            <div class="col-5">
+              <div class="basket__left-col">
+                <div class="deliveryOption__info">
+                  <h3>Delivery address</h3>
+                  <form class="form basket-form">
+                    <div class="form-area">
+                      <label for="city">City*</label>
+                      <input
+                        type="text"
+                        name="city"
+                        id="city"
+                        placeholder="Kyiv"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-area">
+                      <label for="street">Street*</label>
+                      <input
+                        type="text"
+                        name="street"
+                        id="street"
+                        placeholder="Enter a street"
+                        required
+                      />
+                      <p class="js-isRequired"></p>
+                    </div>
+                    <div class="form-area">
+                      <label for="house-number">House number*</label>
+                      <input
+                        type="text"
+                        name="house-number"
+                        id="house-number"
+                        placeholder="Enter house number"
+                        required
+                      />
+                      <p class="js-isRequired"></p>
+                    </div>
+                    <div class="form-area">
+                      <label for="Entrance">Entrance</label>
+                      <input
+                        type="text"
+                        name="Entrance"
+                        id="Entrance"
+                        placeholder="Entrance number"
+                      />
+                    </div>
+                    <div class="form-area">
+                      <label for="apartment">Apartment*</label>
+                      <input
+                        type="text"
+                        name="apartment"
+                        id="apartment"
+                        placeholder="Apartment number"
+                        required
+                      />
+                      <p class="js-isRequired"></p>
+                    </div>
+                    <div class="form-area">
+                      <label for="floor">Floor</label>
+                      <input
+                        type="text"
+                        name="floor"
+                        id="floor"
+                        placeholder="Floor number"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="carryoutOption__info" style="display: none">
+                  <h3>Choose a restaurant</h3>
+                  <div class="location-area">
+                    <svg
+                      viewBox="0 0 12 18"
+                      fill="none"
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                      color="#fe0021"
+                      class="TakeOutForm__CurrentCityIcon-sc-nu5z77-4 dazfCO"
+                    >
+                      <path
+                        d="M6 0C2.692 0 0 2.692 0 6c0 .993.248 1.978.72 2.851l4.952 8.956a.375.375 0 00.656 0l4.953-8.959A6.01 6.01 0 0012 6c0-3.308-2.692-6-6-6zm0 9C4.346 9 3 7.654 3 6s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <p class="city">Kyiv</p>
+                  </div>
+                  <div class="dropdown-wrapper">
+                    <p class="heading">Restaurant</p>
+                    <div class="content">
+                      <div class="search">
+                        <input
+                          class="select-btn"
+                          type="text"
+                          placeholder="Choose a restaurant"
+                          value=""
+                        />
+                      </div>
+                      <ul class="options" id="js-options">
+                        <!-- Here goes JS func -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-7">
+              <div class="basket__right-col">
+                <div class="basket__info">
+                  <h3>Your order</h3>
+                  <p>Minimal price for delivery is 275 UAH</p>
+                </div>
+                <div class="basket-list">
+                  <!-- renderOrderList() -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="checkout">
+        <p>Total sum: <span class="js-checkout-total"></span></p>
+        <div class="checkout__buttons">
+          <button class="button button--grey" id="js-return-to-menu-btn">
+            Return to menu
+          </button>
+          <button class="button button--red" id="js-checkout-btn">
+            Checkout
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="payment">
+      <form class="form payment-form">
+        <h2>Checkout order</h2>
+        <div class="form-area">
+          <label for="fname">First name*</label>
+          <input
+            type="text"
+            id="fname"
+            placeholder="First name"
+            autocomplete="off"
+            required
+          />
+          <p class="js-isRequired"></p>
+        </div>
+        <div class="form-area">
+          <label for="email">Email</label>
+          <input type="email" id="to" placeholder="Email" autocomplete="off" />
+        </div>
+        <div class="form-area">
+          <label for="tel">Phone*</label>
+          <input
+            type="tel"
+            id="tel"
+            maxlength="13"
+            placeholder="+380XXXXXXXXX"
+            autocomplete="off"
+            required
+          />
+          <p class="js-isRequired"></p>
+        </div>
+        <div class="buttons-wrapper">
+          <input
+            type="button"
+            value="Return"
+            class="button button--grey"
+            id="js-return-to-checkout-btn"
+          />
+          <input
+            type="button"
+            value="Submit"
+            class="button button--red"
+            id="js-submit-order"
+          />
+        </div>
+      </form>
+    </div>
+
+    <!-- ======== Custom JS link ======== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/cart.js"></script>
+    <script src="./src/js/complete-order.js"></script>
+    <script src="./src/js/dropdown-menu.js"></script>
+    <script src="./src/js/modals.js"></script>
+  </body>
+</html>
