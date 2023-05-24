@@ -1,0 +1,44 @@
+/* ===== Custom quantity button ===== */
+
+.custom-input {
+  display: flex;
+  border-radius: 1rem;
+  background-color: rgb(228, 228, 228);
+}
+
+.custom-input .qty {
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 100%;
+  padding: 1rem;
+  background-color: rgb(228, 228, 228);
+  color: var(--black);
+}
+
+.custom-input i {
+  font-size: 1.4rem;
+  line-height: 100%;
+  color: var(--black);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-input i::before {
+  transform: translateY(.2rem);
+}
+
+.custom-input #decrement,
+.custom-input #decrement1,
+.custom-input #decrement2 {
+  padding: 1rem .2rem 1rem 1.5rem;
+  border-radius: 0 1.5rem 1.5rem 0;
+}
+
+.custom-input #increment,
+.custom-input #increment1,
+.custom-input #increment2 {
+  padding: 1rem 1.5rem .5rem .2rem;
+  border-radius: 0 1.5rem 1.5rem 0;
+}
