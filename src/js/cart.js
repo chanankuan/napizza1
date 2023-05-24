@@ -12,12 +12,12 @@ let cart = data ? JSON.parse(data) : [];
 
 async function addToCart(id) {
   const products = await fetchProducts();
-  const item = products.find((product) => product.id === id);
+  const item = products.find(product => product.id === id);
   console.log(products);
   console.log(item);
   let qty = 1;
 
-  if (cart.some((item) => item.id === id)) {
+  if (cart.some(item => item.id === id)) {
     itemIsAlreadyInCart();
   } else if (item === undefined) {
     const item = {};
@@ -69,7 +69,7 @@ function setDataToLocalStorage(cart) {
 
 // onclick callback fn in shopping cart
 function changeNumberOfItems(action, id) {
-  cart = cart.flatMap((item) => {
+  cart = cart.flatMap(item => {
     let numberOfUnits = item.numberOfUnits;
 
     if (item.id === id) {
@@ -96,7 +96,7 @@ function changeNumberOfItems(action, id) {
 
 // Remove item from shopping cart
 function removeItemFromCart(id) {
-  cart = cart.filter((item) => item.id !== id);
+  cart = cart.filter(item => item.id !== id);
   setDataToLocalStorage(cart);
   updateCart();
 }
@@ -124,7 +124,7 @@ function renderCartItems() {
   let path = "./src/img/";
   cartBox.innerHTML = "";
 
-  cart.forEach((item) => {
+  cart.forEach(item => {
     const { id, name, price, image, numberOfUnits, pizzaSize, ingredients } =
       item;
 
@@ -162,7 +162,7 @@ function renderSubtotal() {
   if (cart.length === 0) {
     totalItems = "";
   } else {
-    cart.forEach((item) => {
+    cart.forEach(item => {
       totalPrice += item.price * item.numberOfUnits;
       totalItems += item.numberOfUnits;
     });
