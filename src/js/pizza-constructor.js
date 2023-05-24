@@ -27,13 +27,13 @@ const userInfo = {
 renderSauce();
 renderIngredients();
 
-chooseSizeBtns.forEach((btn) => {
+chooseSizeBtns.forEach(btn => {
   btn.addEventListener("click", addSize);
 });
 
 // Render choose sauce block
 function renderSauce() {
-  sauceList.forEach((item) => {
+  sauceList.forEach(item => {
     let { previewName, name, price, icon, image } = item;
 
     currentPizzaWrapper.innerHTML += `
@@ -57,7 +57,7 @@ function renderIngredients() {
   // currentPizzaWrapper.innerHTML = '';
   ingredientsBlock.innerHTML = "";
 
-  ingredientsList.forEach((item) => {
+  ingredientsList.forEach(item => {
     let { id, name, price, icon, image, qty } = item;
 
     currentPizzaWrapper.innerHTML += `
@@ -85,7 +85,7 @@ function renderIngredients() {
 
 // Choose size of custom pizza Fn
 function addSize(e) {
-  sizesList.forEach((size) => {
+  sizesList.forEach(size => {
     if (
       e.target.getAttribute("data-name") === size.pizzaSize ||
       e.target.parentElement.getAttribute("data-name") === size.pizzaSize
@@ -94,11 +94,11 @@ function addSize(e) {
         userOrder.push({ ...size, qty: 1 });
         chooseSizeBtns[size.id].classList.add("active");
       } else if (userOrder.length !== 0) {
-        const item = userOrder.find((obj) => obj.pizzaSize === size.pizzaSize);
+        const item = userOrder.find(obj => obj.pizzaSize === size.pizzaSize);
 
         if (!item) {
           userOrder.splice(0, 1, { ...size, qty: 1 });
-          chooseSizeBtns.forEach((el) => el.classList.remove("active"));
+          chooseSizeBtns.forEach(el => el.classList.remove("active"));
           chooseSizeBtns[size.id].classList.add("active");
         } else {
           return;
@@ -114,7 +114,7 @@ function addSauce(e) {
   const allSauceLayers = document.querySelectorAll(".current-sauce");
   const allSauces = document.querySelectorAll(".sauce-block .label");
 
-  sauceList.forEach((sauce) => {
+  sauceList.forEach(sauce => {
     if (
       e.target.getAttribute("data-name") === sauce.name ||
       e.target.parentElement.getAttribute("data-name") === sauce.name
@@ -124,7 +124,7 @@ function addSauce(e) {
         return;
       }
 
-      const item = userOrder.find((obj) => obj === sauce.name);
+      const item = userOrder.find(obj => obj === sauce.name);
       if (!item) {
         userOrder.splice(1, 1, { ...sauce, qty: 1 });
 
@@ -150,9 +150,9 @@ function addSauce(e) {
 function changeNumberOfIngredients(action, id) {
   const pizzaLayers = document.querySelectorAll(".current-ingredient");
 
-  ingredientsList.forEach((ingredient) => {
+  ingredientsList.forEach(ingredient => {
     if (ingredient.id === id) {
-      const i = userOrder.findIndex((obj) => obj.name === ingredient.name);
+      const i = userOrder.findIndex(obj => obj.name === ingredient.name);
 
       if (userOrder.length === 0) {
         showModalError("First choose the size:)");
@@ -197,7 +197,7 @@ function setDefaultToppings() {
 function updatePrice() {
   let totalSum = 0;
 
-  userOrder.forEach((el) => {
+  userOrder.forEach(el => {
     totalSum += el.qty * el.price;
   });
   currentPizzaPrice.innerHTML = totalSum;
@@ -209,10 +209,10 @@ function clearUserPizza() {
   const allSauceLayers = document.querySelectorAll(".current-sauce");
 
   userOrder = [];
-  chooseSizeBtns.forEach((el) => el.classList.remove("active"));
-  allSauceLayers.forEach((el) => el.classList.remove("active"));
-  allSauces.forEach((el) => el.classList.remove("active"));
-  ingredientsList.forEach((ingredient) => {
+  chooseSizeBtns.forEach(el => el.classList.remove("active"));
+  allSauceLayers.forEach(el => el.classList.remove("active"));
+  allSauces.forEach(el => el.classList.remove("active"));
+  ingredientsList.forEach(ingredient => {
     pizzaLayers[ingredient.id].classList.remove("active");
     ingredient.qty = 0;
   });
