@@ -1,0 +1,253 @@
+@import url("./custom.css");
+@import url("./header.css");
+@import url("./cart.css");
+@import url("./custom-quantity-btn.css");
+@import url("./dropdown-menu.css");
+main {
+  margin-top: 73px;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  margin: 0;
+}
+fieldset input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: none;
+}
+fieldset label {
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  background-color: var(--white);
+  border: 1px solid var(--light-color);
+  border-radius: 3rem;
+  width: 45%;
+}
+fieldset label svg {
+  margin-right: 8px;
+  transform: translateY(20%);
+}
+fieldset label.active {
+  background-color: var(--light-color);
+  color: var(--white);
+}
+fieldset label.active svg {
+  fill: var(--white);
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 4rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+}
+
+.basket {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+}
+.form-area label {
+  font-size: 2rem;
+}
+.form-area input {
+  font-size: 2rem;
+  padding: 1rem 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.basket__left-col {
+  margin-right: 60px;
+  flex: 5 1 0%;
+}
+.basket__left-col input[name=city]::-moz-placeholder {
+  color: var(--black);
+}
+.basket__left-col input[name=city]::placeholder {
+  color: var(--black);
+}
+
+.basket__right-col {
+  flex: 9 1 0%;
+  background-color: var(--light-bg);
+  border-radius: 3rem;
+  padding: 3rem;
+}
+
+.basket__info p {
+  font-size: 1.5rem;
+}
+
+.basket-list .wrapper {
+  display: flex;
+  gap: 5rem;
+}
+
+.basket-item {
+  display: flex;
+  margin-top: 3rem;
+}
+.basket-item .delete-item-btn {
+  font-size: 2rem;
+  color: var(--red);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.basket-item .delete-item-btn img {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
+
+.basket-item__image {
+  display: flex;
+  align-items: center;
+  padding-right: 3rem;
+}
+.basket-item__image img {
+  width: 140px;
+  border-radius: 0.5rem;
+}
+
+.basket-item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.basket-item__name {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.basket-item__size {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+
+.basket-item__ingredients {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+
+.basket-item__price {
+  font-weight: 700;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.carryoutOption__info .location-area {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.carryoutOption__info .location-area .city {
+  font-size: 2rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.checkout p {
+  font-size: 2.5rem;
+  text-align: end;
+}
+
+.js-isRequired {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: red;
+}
+
+.js-checkout-total {
+  font-size: 3rem;
+  color: var(--red);
+}
+
+.checkout__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.button {
+  font-size: 1.8rem;
+  padding: 2rem;
+  width: 30rem;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.button--grey {
+  background-color: rgb(227, 227, 227);
+}
+.button--grey:hover {
+  background-color: lightgray;
+}
+
+.button--red {
+  color: var(--white);
+  background-color: rgb(254, 0, 33);
+}
+.button--red:hover {
+  background-color: rgb(214, 0, 29);
+}
+
+.payment {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+  z-index: 999;
+  overflow: hidden;
+}
+.payment.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.payment h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 10rem;
+}
+.payment .payment-form {
+  width: 30%;
+}
+.payment .buttons-wrapper {
+  display: flex;
+  gap: 4rem;
+}/*# sourceMappingURL=complete-order.css.map */
